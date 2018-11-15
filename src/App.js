@@ -10,7 +10,11 @@ class App extends Component {
 		this.state = {
 			cityFieldValue: 'Reamstown, PA',
 			city: 'Reamstown, PA',
-			coord: '40,-83'
+			coord: '40,-83',
+			periods: {},
+			shortForecast: '80% chance of being in Reamstown',
+			detailedForecast: '',
+			icon: ''
 		}
 	}
 
@@ -34,7 +38,6 @@ class App extends Component {
 			const lng = data.results[0].locations[0].latLng.lng
 			const fetchCoord = (`${lat},${lng}`)
 			this.setState({coord: fetchCoord})
-			console.log(this.state.coord)
 			this.fetchACoordinate()
 		})
 	}
@@ -43,7 +46,10 @@ class App extends Component {
 		fetch(`https://api.weather.gov/points/${this.state.coord}/forecast`)
 		.then(res => res.json())
 		.then(data => {
+			this.setState({periods: data.properties.periods})
 			this.setState({shortForecast: data.properties.periods[0].shortForecast})
+			this.setState({icon: data.properties.periods[0].icon})
+			this.setState({detailedForecast: data.properties.periods[0].detailedForecast})
 			console.log(this.state.shortForecast)
 		})
 		
@@ -53,7 +59,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header writeCity={this.writeCity} updateCity={this.updateCity}/>
-				<Main city={this.state.city} />
+				<Main city={this.state.city} shortForecast={this.state.shortForecast} detailedForecast={this.state.detailedForecast} />
 			</div>
 		)
 	}
