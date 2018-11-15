@@ -15,7 +15,7 @@ class App extends Component {
 	}
 
 	updateCityAndFetch = (city) => {
-		this.fetchACoordinate(this.fetchACity(city))
+		this.fetchACity(city)
 		return (city)
 	}
 	writeCity = (event) => {
@@ -35,14 +35,18 @@ class App extends Component {
 			const fetchCoord = (`${lat},${lng}`)
 			this.setState({coord: fetchCoord})
 			console.log(this.state.coord)
+			this.fetchACoordinate()
 		})
 	}
 
 	fetchACoordinate () {
 		fetch(`https://api.weather.gov/points/${this.state.coord}/forecast`)
 		.then(res => res.json())
-		.then(data => {this.setState({shortForecast: data.properties.periods[0].shortForecast})})
-		console.log(this.state.shortForecast)
+		.then(data => {
+			this.setState({shortForecast: data.properties.periods[0].shortForecast})
+			console.log(this.state.shortForecast)
+		})
+		
 	}
 
 	render() {
