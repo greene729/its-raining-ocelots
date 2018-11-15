@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Header = ({ setCity, city }) => {
+const Header = ({ writeCity, updateCity }) => {
+
 	return (
 		<header>
 			<h1>weather</h1>
-	      	<label><input type="text" id="city" onChange={() => setCity(value)} /></label>
-	      	<button>Search</button>
+	      	<label><input type="text" id="city" onChange={writeCity} /></label>
+	      	<button onClick={updateCity}>Search</button>
     	</header>
 	)
 }

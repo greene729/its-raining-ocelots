@@ -3,15 +3,21 @@ import { Component } from 'react'
 
 
 class Main extends Component {
+	constructor({ city }) {
+		super({ city })
+		this.state ={
+			shortForecast: ''
+		}
+	}
 
 	render (){
 		return(
 			<main>
-				<h2>Reamstown, Pennsylvania</h2>
-				<article>Shit's crazy in Reamstown. It's raining.</article>
-				<article>little boxes go here</article>
+			<h2>{this.props.city}</h2>
+			<article>{this.state.shortForecast}</article>
+			<article>little boxes go here</article>
 			</main>
-		)
+			)
 	}
 }
 
