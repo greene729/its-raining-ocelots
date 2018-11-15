@@ -25,8 +25,8 @@ class Main extends Component {
 		return(
 			<main>
 			<h2>{this.props.city}</h2>
-			<h2>{this.props.shortForecast}</h2>
-			<p>It's raining fucking {kindOfRain}</p>
+			<h3>It's raining fucking {kindOfRain}</h3>
+			<p>{this.props.shortForecast}</p>
 			</main>
 			)
 	}

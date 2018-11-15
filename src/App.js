@@ -56,6 +56,8 @@ class App extends Component {
 	}
 
 	render() {
+
+		document.querySelector('#root').style.backgroundImage = `url("${this.state.icon}")`
 		return (
 			<div className="App">
 				<Header writeCity={this.writeCity} updateCity={this.updateCity}/>
