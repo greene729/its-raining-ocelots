@@ -17,6 +17,7 @@ class App extends Component {
 			detailedForecast: '',
 			icon: ''
 		}
+		this.updateCity()
 	}
 
 	updateCityAndFetch = (city) => {
@@ -51,14 +52,14 @@ class App extends Component {
 			this.setState({shortForecast: data.properties.periods[0].shortForecast})
 			this.setState({icon: data.properties.periods[0].icon})
 			this.setState({detailedForecast: data.properties.periods[0].detailedForecast})
-			console.log(this.state.shortForecast)
+			console.log(this.state.detailedForecast)
 		})
 		
 	}
 
 	render() {
 
-		document.querySelector('#root').style.backgroundImage = `url("${this.state.icon}")`
+		document.querySelector('body').style.backgroundImage = `url("${this.state.icon}")`
 		return (
 			<div className="App">
 				<Header writeCity={this.writeCity} updateCity={this.updateCity}/>
