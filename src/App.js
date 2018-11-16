@@ -48,6 +48,12 @@ class App extends Component {
 		fetch(`https://api.weather.gov/points/${this.state.coord}/forecast`)
 		.then(res => res.json())
 		.then(data => {
+			if(!data.properties){
+				this.setState({city: 'Please search only inside the US'})
+				this.setState({shortForecast: '75% chance of hellfire and brimstone'})
+				this.setState({detailedForecast: 'you done fucked up'})
+				return
+			}
 			this.setState({periods: data.properties.periods})
 			this.setState({shortForecast: data.properties.periods[0].shortForecast})
 			this.setState({icon: data.properties.periods[0].icon})

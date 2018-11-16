@@ -4,6 +4,7 @@ import Ghost from './rain-graphics/Ghost'
 import Tiger from './rain-graphics/Tiger'
 import Bison from './rain-graphics/Bison'
 import Snake from './rain-graphics/Snake'
+import AlGore from './rain-graphics/AlGore'
 
 
 class Main extends Component {
@@ -34,7 +35,10 @@ class Main extends Component {
 	} else if (this.props.detailedForecast.toLowerCase().includes('haze')){
 		kindOfRain = 'ghosts'
 		rainGraphic = <Ghost />
-	} else {
+	} else if (this.props.detailedForecast.toLowerCase().includes('you done fucked up')){
+		kindOfRain = 'Al Gore'
+		rainGraphic = <AlGore />
+	}else {
 		kindOfRain = 'nothing'
 	}
 
