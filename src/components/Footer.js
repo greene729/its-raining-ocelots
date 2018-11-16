@@ -1,9 +1,12 @@
 import React from 'react'
+import Ad from './Ad'
 
 const Footer = () => {
 
 	return (
-		<footer>fuck</footer>
+		<footer>
+			<Ad />
+		</footer>
 	)
 }
 
