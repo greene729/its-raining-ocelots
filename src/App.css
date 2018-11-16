@@ -50,6 +50,30 @@ p{
 	font-size: 1.5rem;
 }
 
+.ad {
+	width: 50%;
+	margin: 0 auto;
+	border: 1px solid black;
+	box-shadow: 1px 1px 3px;
+	padding: 1rem;
+	text-align: left;
+	background-color: #fff;
+}
+	.ad * {
+		font-family: Arial;
+	}
+	.ad p {
+		font-size: 1rem;
+	}
+	.ad a {
+		color: blue;
+		text-decoration: underline;
+	}
+		#green-links {
+			color: green;
+			text-decoration: none;
+		}
+
 .information {
 	width: 80wv;
 	margin: 0 auto;
