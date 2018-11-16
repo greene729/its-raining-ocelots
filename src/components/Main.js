@@ -42,7 +42,7 @@ class Main extends Component {
 			<main>
 			<section className="information">
 				<h2>{this.props.city}</h2>
-				<h3>It's raining fucking {kindOfRain}</h3>
+				<h3>It&#8217;s raining fucking {kindOfRain}</h3>
 				<p>{this.props.shortForecast}</p>
 			</section>
 			{rainGraphic}
